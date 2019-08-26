@@ -1,7 +1,15 @@
-# Useful commands
+# Serverless Domain Redirect
+Create a serverless stack for implementing domain redirect on AWS without provisioning any machine.
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+## Use AWS S3 and CloudFront for domain redirect
+
+### Prerequsistes
+
+- Create a public hosted zone in Route 53 for your domain.
+
+### How to deploy the Stack
+
+```shell
+cdk deploy -c targerHost=aws.kane.mx -c redirectHost=aws.amazon.com
+```
+
