@@ -16,8 +16,11 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.6.0",
     "@aws-cdk/aws-certificatemanager": "^1.6.0",
     "@aws-cdk/aws-cloudfront": "^1.6.0",
+    "@aws-cdk/aws-lambda": "^1.6.0",
+    "@aws-cdk/aws-logs": "^1.6.0",
     "@aws-cdk/aws-route53": "^1.6.0",
     "@aws-cdk/aws-route53-targets": "^1.6.0",
     "@aws-cdk/aws-s3": "^1.6.0",
