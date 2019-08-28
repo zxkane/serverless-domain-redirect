@@ -12,13 +12,18 @@ export class ServerlessDomainRedirectStack extends cdk.Stack {
 
     // create S3 bucket to redirect the request
     const targetHost = this.node.tryGetContext('targetHost');
-    const redirectHost = this.node.tryGetContext('redirectHost')
+    const hostedZoneDomain = this.node.tryGetContext('hostedZone');
+    const redirectHost = this.node.tryGetContext('redirectHost');
 
+    if (!hostedZoneDomain)
+      throw new Error(`Please specify 'hostedZone' via context.`);
+    if (targetHost.indexOf(hostedZoneDomain) == -1)
+      throw new Error(`Target host '${targetHost}' is not a sub domain of hosted zone '${hostedZoneDomain}'.`);
     if (!redirectHost)
       throw new Error(`Please specify 'redirectHost' via context.`); 
 
     const hostedZone = route53.HostedZone.fromLookup(this, 'HostedZone', {
-      domainName: targetHost,
+      domainName: hostedZoneDomain,
       privateZone: false
     });
 

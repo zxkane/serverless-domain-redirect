@@ -10,6 +10,6 @@ Create a serverless stack for implementing domain redirect on AWS without provis
 ### How to deploy the Stack
 
 ```shell
-cdk deploy -c targerHost=aws.kane.mx -c redirectHost=aws.amazon.com
+cdk deploy -c hostedZone=kane.mx -c targerHost=aws.kane.mx -c redirectHost=aws.amazon.com
 ```
 
