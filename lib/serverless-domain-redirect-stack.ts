@@ -28,6 +28,10 @@ export class ServerlessDomainRedirectStack extends cdk.Stack {
       privateZone: false
     });
 
+    var mode = this.node.tryGetContext('mode');
+    if (mode !== 'lambda')
+      mode = 's3';
+
     const certificate = new certmgr.DnsValidatedCertificate(this, 'Certificate-' + targetHost, {
       domainName: targetHost,
       hostedZone,
@@ -37,10 +41,6 @@ export class ServerlessDomainRedirectStack extends cdk.Stack {
       },
       validationMethod: certmgr.ValidationMethod.DNS
     });
-
-    var mode = this.node.tryGetContext('mode');
-    if (mode !== 'lambda')
-      mode = 's3';
 
     if (mode == 's3') {
       

@@ -10,7 +10,7 @@ Create a serverless stack for implementing domain redirect on AWS without provis
 ### How to deploy the Stack
 
 ```shell
-cdk deploy -c hostedZone=kane.mx -c targerHost=aws.kane.mx -c redirectHost=aws.amazon.com
+cdk deploy -c hostedZone=aws.kane.mx -c targetHost=aws.kane.mx -c redirectHost=aws.amazon.com
 ```
 
 ## Use AWS Lambda and API Gateway for domain redirect requests
@@ -18,5 +18,5 @@ cdk deploy -c hostedZone=kane.mx -c targerHost=aws.kane.mx -c redirectHost=aws.a
 ### How to deploy the Stack
 
 ```shell
-cdk deploy -c hostedZone=aws.kane.mx -c targerHost=lambda.aws.kane.mx -c mode=lambda 
+cdk deploy -c hostedZone=aws.kane.mx -c targetHost=lambda.aws.kane.mx -c mode=lambda 
 ```
